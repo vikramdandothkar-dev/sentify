@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>How to Run Sentify AI</title>
+<style>
+  @page { margin: 1.5cm; size: A4; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1E293B; line-height: 1.7; margin: 0; padding: 2rem; }
+  h1 { text-align: center; color: #4F46E5; font-size: 28px; margin-bottom: 0.2rem; }
+  .subtitle { text-align: center; color: #64748B; font-size: 14px; margin-bottom: 2rem; }
+  h2 { color: #6366F1; font-size: 18px; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; margin-top: 2rem; }
+  h3 { color: #334155; font-size: 15px; margin-top: 1.2rem; }
+  .info-box { background: #F1F5F9; border-left: 4px solid #6366F1; padding: 12px 16px; border-radius: 6px; margin: 1rem 0; font-size: 14px; }
+  .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px 16px; border-radius: 6px; margin: 1rem 0; font-size: 14px; }
+  pre { background: #1E293B; color: #E2E8F0; padding: 14px 18px; border-radius: 8px; font-size: 13px; overflow-x: auto; line-height: 1.6; }
+  code { font-family: 'Consolas', 'Courier New', monospace; }
+  .inline-code { background: #F1F5F9; color: #4F46E5; padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'Consolas', monospace; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 14px; }
+  th { background: #6366F1; color: white; padding: 10px 14px; text-align: left; }
+  td { padding: 10px 14px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8FAFC; }
+  .step-num { display: inline-block; background: #6366F1; color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; font-size: 14px; margin-right: 8px; }
+  .footer { text-align: center; color: #94A3B8; font-size: 12px; margin-top: 3rem; border-top: 1px solid #E2E8F0; padding-top: 1rem; }
+  ul { padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; font-size: 14px; }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<h1>🔮 Sentify AI</h1>
+<p class="subtitle">AI-Based Customer Feedback Sentiment Analysis System<br>
+<strong>Setup & Installation Guide</strong></p>
+
+<div class="info-box">
+  <strong>Project Type:</strong> College Internship Capstone Project (8-Week Software Development Internship)<br>
+  <strong>Tech Stack:</strong> Python 3.10+ &bull; Scikit-learn &bull; NLTK &bull; Streamlit &bull; Plotly &bull; SQLite
+</div>
+
+<h2>📋 Prerequisites</h2>
+<table>
+  <tr><th>Requirement</th><th>Details</th></tr>
+  <tr><td>Python</td><td>Version 3.10 or higher</td></tr>
+  <tr><td>pip</td><td>Python package manager (comes with Python)</td></tr>
+  <tr><td>OS</td><td>Windows, macOS, or Linux</td></tr>
+  <tr><td>Disk Space</td><td>~500 MB (for dependencies)</td></tr>
+  <tr><td>Internet</td><td>Required for initial setup only</td></tr>
+</table>
+
+<h2>🚀 Step-by-Step Installation</h2>
+
+<h3><span class="step-num">1</span> Extract the Project</h3>
+<p>If you received a zip file, extract it first:</p>
+<pre><code># Windows (PowerShell)
+Expand-Archive sentify_ai_project.zip -DestinationPath sentify_ai_project
+
+# macOS / Linux
+unzip sentify_ai_project.zip -d sentify_ai_project</code></pre>
+
+<h3><span class="step-num">2</span> Navigate to the Project Folder</h3>
+<pre><code>cd sentify_ai_project</code></pre>
+
+<h3><span class="step-num">3</span> Create a Python Virtual Environment</h3>
+<pre><code># Windows
+python -m venv venv
+
+# macOS / Linux
+python3 -m venv venv</code></pre>
+
+<h3><span class="step-num">4</span> Activate the Virtual Environment</h3>
+<pre><code># Windows (PowerShell)
+venv\Scripts\activate
+
+# Windows (Command Prompt)
+venv\Scripts\activate.bat
+
+# macOS / Linux
+source venv/bin/activate</code></pre>
+
+<div class="info-box">
+  ✅ You should see <span class="inline-code">(venv)</span> appear at the beginning of your terminal prompt.
+</div>
+
+<h3><span class="step-num">5</span> Install Dependencies</h3>
+<pre><code>pip install -r requirements.txt</code></pre>
+<p>This installs all required packages:</p>
+<table>
+  <tr><th>Package</th><th>Purpose</th></tr>
+  <tr><td>streamlit</td><td>Web application framework</td></tr>
+  <tr><td>scikit-learn</td><td>Machine learning (Logistic Regression)</td></tr>
+  <tr><td>pandas</td><td>Data processing</td></tr>
+  <tr><td>numpy</td><td>Numerical computing</td></tr>
+  <tr><td>plotly</td><td>Interactive charts & visualizations</td></tr>
+  <tr><td>nltk</td><td>Natural Language Processing</td></tr>
+  <tr><td>joblib</td><td>Model serialization</td></tr>
+</table>
+
+<h3><span class="step-num">6</span> Download NLTK Data (One-Time Only)</h3>
+<pre><code>python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('wordnet')"</code></pre>
+
+<div class="warning-box">
+  ⚠️ This step requires an internet connection. It only needs to be done once.
+</div>
+
+<h3><span class="step-num">7</span> Run the Application</h3>
+<pre><code>streamlit run app.py</code></pre>
+<p>The app will automatically open in your default browser at:</p>
+<div class="info-box">
+  🌐 <strong>Local URL:</strong> <span class="inline-code">http://localhost:8501</span><br>
+  🌐 <strong>Network URL:</strong> <span class="inline-code">http://&lt;your-ip&gt;:8501</span> (accessible from other devices on the same network)
+</div>
+
+<div class="page-break"></div>
+
+<h2>📱 Application Pages</h2>
+<table>
+  <tr><th>Page</th><th>Description</th></tr>
+  <tr><td>📊 Dashboard</td><td>Executive KPI dashboard with live sentiment charts, donut chart, bar chart, trend line, and recent reviews feed</td></tr>
+  <tr><td>📁 Bulk Analysis</td><td>Upload CSV files for batch sentiment analysis. Includes summary cards, pie chart, confidence histogram, and CSV download</td></tr>
+  <tr><td>📜 Feedback History</td><td>Browse all saved reviews with search, filters, pagination, export, and vocabulary analysis</td></tr>
+  <tr><td>ℹ️ About Project</td><td>ML model metrics, confusion matrix, classification report, retrain button, and system architecture info</td></tr>
+</table>
+
+<h2>📂 Project Structure</h2>
+<pre><code>sentify_ai_project/
+├── app.py                       # Main Streamlit entry point
+├── model_training.py            # Dataset generation & model training
+├── sentiment_analysis.py        # Inference engine & explainability
+├── preprocessing.py             # NLP text cleaning pipeline
+├── database.py                  # SQLite CRUD operations
+├── test_app.py                  # Automated test suite
+├── requirements.txt             # Python dependencies
+│
+├── pages/
+│   ├── dashboard_page.py        # KPI dashboard
+│   ├── bulk_analysis_page.py    # CSV batch analysis
+│   ├── history_page.py          # Feedback archive
+│   └── about_page.py           # Model metrics & info
+│
+├── data/
+│   ├── customer_reviews_dataset.csv   # 3,000-sample training data
+│   ├── sample_customer_reviews.csv    # Sample CSV for testing
+│   └── feedback.db                    # SQLite database
+│
+├── models/
+│   ├── sentiment_model.joblib         # Trained classifier
+│   ├── tfidf_vectorizer.joblib        # TF-IDF vectorizer
+│   └── model_metrics.json             # Evaluation metrics
+│
+└── assets/
+    └── style.css                      # Custom CSS theme</code></pre>
+
+<h2>🔧 Troubleshooting</h2>
+<table>
+  <tr><th>Problem</th><th>Solution</th></tr>
+  <tr><td><span class="inline-code">python</span> not found</td><td>Try <span class="inline-code">python3</span> instead, or add Python to your system PATH</td></tr>
+  <tr><td>pip install fails</td><td>Upgrade pip: <span class="inline-code">python -m pip install --upgrade pip</span></td></tr>
+  <tr><td>Port 8501 in use</td><td>Run with: <span class="inline-code">streamlit run app.py --server.port 8502</span></td></tr>
+  <tr><td>NLTK data error</td><td>Re-run Step 6 with an active internet connection</td></tr>
+  <tr><td>Module not found</td><td>Ensure your virtual environment is activated (Step 4)</td></tr>
+</table>
+
+<h2>⏹️ Stopping the Application</h2>
+<p>Press <span class="inline-code">Ctrl + C</span> in the terminal where Streamlit is running.</p>
+
+<h2>🔄 Running Again Later</h2>
+<p>After the initial setup, you only need two commands to run the app again:</p>
+<pre><code># 1. Activate the virtual environment
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# 2. Run the app
+streamlit run app.py</code></pre>
+
+<div class="footer">
+  <strong>Sentify AI</strong> &bull; AI-Based Customer Feedback Sentiment Analysis System<br>
+  College Internship Capstone Project &bull; 2026<br>
+  Built with Python, Scikit-learn, NLTK & Streamlit
+</div>
+
+</body>
+</html>

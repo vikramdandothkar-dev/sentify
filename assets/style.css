@@ -1,0 +1,398 @@
+/* ==========================================================================
+   AI-Based Customer Feedback Sentiment Analysis System
+   Theme: Clean Modern Light Mode (Crisp White/Slate with Vibrant Indigo/Blue)
+   ========================================================================== */
+
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F1F5F9;
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --border-color: #E2E8F0;
+    --border-highlight: #C7D2FE;
+    
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    
+    --indigo-primary: #4F46E5;
+    --indigo-glow: rgba(79, 70, 229, 0.15);
+    --indigo-accent: #6366F1;
+    --indigo-dark: #3730A3;
+    --indigo-light: #EEF2FF;
+    
+    --positive: #059669;
+    --positive-bg: #ECFDF5;
+    --positive-border: #A7F3D0;
+    
+    --negative: #DC2626;
+    --negative-bg: #FEF2F2;
+    --negative-border: #FECACA;
+    
+    --neutral: #6366F1;
+    --neutral-bg: #EEF2FF;
+    --neutral-border: #C7D2FE;
+    
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+}
+
+/* Global App Styling */
+html, body, [class*="css"] {
+    font-family: var(--font-sans);
+}
+
+.stApp {
+    background: #F8FAFC !important;
+    color: var(--text-primary) !important;
+}
+
+/* Header & Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    color: #0F172A !important;
+}
+
+/* Header Badge Banner */
+.brand-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #EEF2FF 100%);
+    border: 1px solid #E0E7FF;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px -4px rgba(79, 70, 229, 0.08);
+    backdrop-filter: blur(12px);
+    margin-bottom: 2rem;
+}
+
+.brand-title-group h1 {
+    font-size: 1.75rem !important;
+    margin: 0 !important;
+    background: linear-gradient(135deg, #1E1B4B 0%, #4338CA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-title-group p {
+    font-size: 0.9rem !important;
+    color: var(--text-secondary) !important;
+    margin: 0.35rem 0 0 0 !important;
+}
+
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.95rem;
+    background: #EEF2FF;
+    border: 1px solid #C7D2FE;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4338CA;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* KPI Metric Cards */
+.kpi-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card {
+    position: relative;
+    padding: 1.4rem 1.2rem;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-highlight);
+    box-shadow: 0 10px 25px -4px var(--indigo-glow);
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4F46E5, #6366F1);
+}
+
+.kpi-card.positive::before {
+    background: linear-gradient(90deg, #059669, #10B981);
+}
+
+.kpi-card.negative::before {
+    background: linear-gradient(90deg, #DC2626, #EF4444);
+}
+
+.kpi-card.neutral::before {
+    background: linear-gradient(90deg, #6366F1, #818CF8);
+}
+
+.kpi-card.satisfaction::before {
+    background: linear-gradient(90deg, #D97706, #F59E0B);
+}
+
+.kpi-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.kpi-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.kpi-icon {
+    font-size: 1.3rem;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1.1;
+    font-feature-settings: "tnum";
+}
+
+.kpi-subtext {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+}
+
+/* Sentiment Badges */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.badge-positive {
+    background-color: var(--positive-bg);
+    color: #065F46;
+    border: 1px solid var(--positive-border);
+}
+
+.badge-negative {
+    background-color: var(--negative-bg);
+    color: #991B1B;
+    border: 1px solid var(--negative-border);
+}
+
+.badge-neutral {
+    background-color: var(--neutral-bg);
+    color: #3730A3;
+    border: 1px solid var(--neutral-border);
+}
+
+/* Result Showcase Box */
+.sentiment-result-card {
+    padding: 1.75rem;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.sentiment-result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.sentiment-label-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sentiment-emoji-large {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.sentiment-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.sentiment-confidence-badge {
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-md);
+}
+
+/* Glass Card / White Container */
+.glass-panel {
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.glass-panel-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Token Explainability Pills */
+.token-pill {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    margin: 0.2rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.token-positive {
+    background: #ECFDF5;
+    color: #047857;
+    border: 1px solid #A7F3D0;
+}
+
+.token-negative {
+    background: #FEF2F2;
+    color: #B91C1C;
+    border: 1px solid #FECACA;
+}
+
+/* Sidebar Custom Styling */
+section[data-testid="stSidebar"] {
+    background: #FFFFFF !important;
+    border-right: 1px solid #E2E8F0 !important;
+}
+
+section[data-testid="stSidebar"] h1, 
+section[data-testid="stSidebar"] h2, 
+section[data-testid="stSidebar"] h3 {
+    color: #1E293B !important;
+}
+
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] div {
+    color: #334155 !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stRadio"] label span {
+    color: #1E293B !important;
+}
+
+/* Buttons */
+.stButton > button {
+    background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    border-radius: var(--radius-sm) !important;
+    border: none !important;
+    padding: 0.6rem 1.5rem !important;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25) !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, #4338CA 0%, #3730A3 100%) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.35) !important;
+}
+
+/* Secondary Button */
+.stButton > button[kind="secondary"] {
+    background: #FFFFFF !important;
+    color: #334155 !important;
+    border: 1px solid #CBD5E1 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.stButton > button[kind="secondary"]:hover {
+    background: #F8FAFC !important;
+    border-color: #94A3B8 !important;
+    color: #0F172A !important;
+}
+
+/* Text Inputs and Text Areas */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div > div {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    border-color: #6366F1 !important;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Streamlit Dataframe / Table styling */
+div[data-testid="stDataFrame"] {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+    background-color: #FFFFFF !important;
+}
+
+/* Footer note */
+.app-footer {
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid #E2E8F0;
+    margin-top: 3rem;
+}
